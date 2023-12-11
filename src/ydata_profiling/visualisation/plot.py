@@ -14,7 +14,7 @@ from matplotlib.patches import Patch
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from typeguard import typechecked
-from wordcloud import WordCloud
+#from wordcloud import WordCloud
 
 from ydata_profiling.config import Settings
 from ydata_profiling.utils.common import convert_timestamp_to_datetime
@@ -26,24 +26,24 @@ def format_fn(tick_val: int, tick_pos: Any) -> str:
     return convert_timestamp_to_datetime(tick_val).strftime("%Y-%m-%d %H:%M:%S")
 
 
-def _plot_word_cloud(
-    series: Union[pd.Series, List[pd.Series]],
-    figsize: tuple = (6, 4),
-) -> plt.Figure:
-    if not isinstance(series, list):
-        series = [series]
-    plot = plt.figure(figsize=figsize)
-    for i, series_data in enumerate(series):
-        word_dict = series_data.to_dict()
-        wordcloud = WordCloud(
-            background_color="white", random_state=123, width=300, height=200, scale=2
-        ).generate_from_frequencies(word_dict)
+# def _plot_word_cloud(
+#     series: Union[pd.Series, List[pd.Series]],
+#     figsize: tuple = (6, 4),
+# ) -> plt.Figure:
+#     if not isinstance(series, list):
+#         series = [series]
+#     plot = plt.figure(figsize=figsize)
+#     for i, series_data in enumerate(series):
+#         word_dict = series_data.to_dict()
+#         wordcloud = WordCloud(
+#             background_color="white", random_state=123, width=300, height=200, scale=2
+#         ).generate_from_frequencies(word_dict)
 
-        ax = plot.add_subplot(1, len(series), i + 1)
-        ax.imshow(wordcloud)
-        ax.axis("off")
+#         ax = plot.add_subplot(1, len(series), i + 1)
+#         ax.imshow(wordcloud)
+#         ax.axis("off")
 
-    return plot
+#     return plot
 
 
 def _plot_histogram(
@@ -122,10 +122,10 @@ def _plot_histogram(
     return plot
 
 
-@manage_matplotlib_context()
-def plot_word_cloud(config: Settings, word_counts: pd.Series) -> str:
-    _plot_word_cloud(series=word_counts)
-    return plot_360_n0sc0pe(config)
+# @manage_matplotlib_context()
+# def plot_word_cloud(config: Settings, word_counts: pd.Series) -> str:
+#     _plot_word_cloud(series=word_counts)
+#     return plot_360_n0sc0pe(config)
 
 
 @manage_matplotlib_context()

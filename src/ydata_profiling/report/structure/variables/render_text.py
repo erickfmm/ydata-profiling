@@ -76,13 +76,13 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     )
     top_items.append(table)
 
-    if words and "word_counts" in summary:
-        mini_wordcloud = Image(
-            plot_word_cloud(config, summary["word_counts"]),
-            image_format=config.plot.image_format,
-            alt="Mini wordcloud",
-        )
-        top_items.append(mini_wordcloud)
+    #if words and "word_counts" in summary:
+    #    mini_wordcloud = Image(
+    #        plot_word_cloud(config, summary["word_counts"]),
+    #        image_format=config.plot.image_format,
+    #        alt="Mini wordcloud",
+    #    )
+    #    top_items.append(mini_wordcloud)
     template_variables["top"] = Container(top_items, sequence_type="grid")
 
     # ============================================================================================
