@@ -143,7 +143,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     )
     bottom_items.append(overview)
 
-    if words and "word_counts" in summary:
+    if False and words and "word_counts" in summary:
         woc = freq_table(
             freqtable=summary["word_counts"],
             n=_get_n(summary["word_counts"]),
